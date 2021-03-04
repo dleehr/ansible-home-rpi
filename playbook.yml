@@ -1,0 +1,6 @@
+---
+- name: Prepare raspberry pi
+  hosts: all
+  connection: local
+  roles:
+  - file-server
