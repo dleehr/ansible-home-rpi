@@ -1,1 +1,1 @@
-pi 
+pi ansible_host=10.0.0.108

@@ -8,11 +8,11 @@
   ansible.builtin.file:
     path: /srv/easystore
     state: directory
-  
+
 - name: mount device by label
   ansible.posix.mount:
     path: /srv/easystore
     src: LABEL=easystore
     opts: ro
-    state: mounted
+    state: "{{ mount_state }}"
     fstype: hfsplus

@@ -1,7 +1,6 @@
 ---
 - name: Prepare raspberry pi
   hosts: all
-  connection: local
   roles:
   - name: file-server
     become: true
