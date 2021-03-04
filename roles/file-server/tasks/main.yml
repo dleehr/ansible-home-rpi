@@ -3,6 +3,7 @@
   ansible.builtin.apt:
     name: hfsprogs
     state: present
+  when: install
 
 - name: make the mount point
   ansible.builtin.file:

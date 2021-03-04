@@ -1,0 +1,10 @@
+---
+- name: Prepare raspberry pi
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  vars:
+    install: no
+  roles:
+  - name: file-server
+    become: true
