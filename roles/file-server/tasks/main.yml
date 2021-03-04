@@ -1,8 +1,4 @@
 ---
-- name: hello world
-  debug:
-    msg: "Hello, world"
-
 - name: install hfsprogs
   ansible.builtin.apt:
     name: hfsprogs
