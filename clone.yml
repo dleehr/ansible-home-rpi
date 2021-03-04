@@ -1,0 +1,16 @@
+---
+- name: clone the git repo
+  hosts: all
+  vars:
+    git_remote: https://github.com/dleehr/ansible-home-rpi
+    git_dest: /home/shortcuts/ansible-home-rpi
+  tasks:
+  - name: clone the github repo
+    ansible.builtin.git:
+      repo: "{{ git_remote }}"
+      dest: "{{ git_dest }}"
+  - name: Install python requirements
+    ansible.builtin.pip:
+      requirements: "{{ git_dest }}/requirements.txt"
+      virtualenv: "{{ git_dest }}/venv"
+      virtualenv_command: "python3 -m venv"

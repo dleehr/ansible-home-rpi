@@ -1,1 +1,1 @@
-pi ansible_host=10.0.0.108
+pi ansible_host=10.0.0.108 ansible_python_interpreter=/usr/bin/python3
