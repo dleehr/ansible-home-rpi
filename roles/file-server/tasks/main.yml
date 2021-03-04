@@ -2,3 +2,21 @@
 - name: hello world
   debug:
     msg: "Hello, world"
+
+- name: install hfsprogs
+  ansible.builtin.apt:
+    name: hfsprogs
+    state: present
+
+- name: make the mount point
+  ansible.builtin.file:
+    path: /srv/easystore
+    state: directory
+  
+- name: mount device by label
+  ansible.posix.mount:
+    path: /srv/easystore
+    src: LABEL=easystore
+    opts: ro
+    state: mounted
+    fstype: hfsplus

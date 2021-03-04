@@ -1,1 +1,1 @@
-pi ansible_python_interpreter={{ansible_playbook_python}}
+pi 

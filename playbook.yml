@@ -3,4 +3,5 @@
   hosts: all
   connection: local
   roles:
-  - file-server
+  - name: file-server
+    become: true
