@@ -1,0 +1,12 @@
+---
+- name: Configure an automation user
+  become: yes
+  hosts: all
+  tasks:
+  - name: Create automation user   
+    ansible.builtin.user:
+      name: shortcuts
+      comment: "Automation User"
+      generate_ssh_key: yes
+      groups: sudo
+      
