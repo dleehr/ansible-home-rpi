@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 . ./venv/bin/activate
-ansible-playbook local-mount.yml
+ansible-playbook -i inventory-local local-mount.yml
