@@ -1,0 +1,21 @@
+---
+- name: install samba
+  ansible.builtin.apt:
+    name:
+    - samba
+    - samba-common-bin
+    state: present
+  when: install
+
+- name: Update share
+  ansible.builtin.blockinfile:
+    block: |
+      [{{ share_name }}]
+      path = /srv/{{ share_name }}
+      writeable=Yes
+      create mask=0777
+      directory mask=0777
+      public=no
+  notify: restart_smbd
+
+# TODO: a share
