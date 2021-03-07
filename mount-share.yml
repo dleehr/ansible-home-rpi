@@ -1,0 +1,7 @@
+---
+- name: Prepare raspberry pi
+  hosts: all
+  become: yes
+  roles:
+  - disk-mount
+  - file-sharing
