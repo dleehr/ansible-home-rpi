@@ -5,6 +5,7 @@
   connection: local
   vars:
     install: no
+    mount_state: unmounted
   roles:
   - name: disk-mount
     become: true

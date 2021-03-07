@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 . ./venv/bin/activate
-ansible-playbook playbook-local.yml -e mount_state=mounted
+ansible-playbook local-mount.yml

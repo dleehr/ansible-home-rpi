@@ -1,0 +1,11 @@
+---
+- name: Prepare raspberry pi
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  vars:
+    install: no
+    mount_state: mounted
+  roles:
+  - name: disk-mount
+    become: true
