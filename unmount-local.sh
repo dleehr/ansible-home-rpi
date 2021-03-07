@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-. ./venv/bin/activate
-ansible-playbook -i inventory-local local-unmount.yml
+sudo systemctl stop smbd
+sudo umount /srv/easystore
