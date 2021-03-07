@@ -9,6 +9,7 @@
 
 - name: Update share
   ansible.builtin.blockinfile:
+    path: /etc/samba/smb.conf
     block: |
       [{{ share_name }}]
       path = /srv/{{ share_name }}
@@ -18,4 +19,8 @@
       public=no
   notify: restart_smbd
 
-# TODO: a share
+# Setting a samba password through stdin still needs it twice
+# https://stackoverflow.com/questions/3323966/echo-smbpasswd-by-stdin-doesnt-work
+- name: set samba password
+  ansible.builtin.shell:
+    cmd: 'printf "{{ share_password }}\n{{ share_password }}" | smbpasswd -a {{ share_user }} -s'
