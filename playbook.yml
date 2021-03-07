@@ -2,5 +2,7 @@
 - name: Prepare raspberry pi
   hosts: all
   roles:
-  - name: file-server
+  - name: disk-mount
+    become: true
+  - name: file-sharing
     become: true

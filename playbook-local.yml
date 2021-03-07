@@ -6,5 +6,5 @@
   vars:
     install: no
   roles:
-  - name: file-server
+  - name: disk-mount
     become: true
