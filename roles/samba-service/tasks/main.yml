@@ -2,4 +2,4 @@
 - name: control samba service
   ansible.builtin.systemd:
     name: smbd
-    state: {{ samba_state }}
+    state: "{{ samba_state }}"
