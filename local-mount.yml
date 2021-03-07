@@ -6,6 +6,7 @@
   vars:
     install: no
     mount_state: mounted
+    samba_state: started
   roles:
-  - name: disk-mount
-    become: true
+  - disk-mount
+  - samba-service

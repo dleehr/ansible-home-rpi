@@ -3,9 +3,11 @@
   hosts: localhost
   gather_facts: no
   connection: local
+  become: true
   vars:
     install: no
     mount_state: unmounted
+    samba_state: stopped
   roles:
-  - name: disk-mount
-    become: true
+  - samba-service
+  - disk-mount
