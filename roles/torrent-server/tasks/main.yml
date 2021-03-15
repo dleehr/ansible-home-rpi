@@ -23,3 +23,15 @@
   ansible.builtin.systemd:
     name: transmission-daemon
     state: started
+
+- name: share torrent downloads
+  ansible.builtin.blockinfile:
+    path: /etc/samba/smb.conf
+    block: |
+      [{{ share_name }}]
+      path = /var/lib/transmission-daemon/downloads
+      writeable=Yes
+      create mask=0777
+      directory mask=0777
+      public=no
+  notify: restart_smbd
