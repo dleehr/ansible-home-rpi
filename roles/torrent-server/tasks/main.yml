@@ -11,6 +11,7 @@
     name: transmission-daemon
     state: stopped
 
+# https://github.com/transmission/transmission/wiki/Editing-Configuration-Files
 - name: Configure transmission settings.json
   ansible.builtin.lineinfile:
     path: /etc/transmission-daemon/settings.json
