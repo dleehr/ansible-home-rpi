@@ -14,6 +14,6 @@
   ansible.posix.mount:
     path: /srv/easystore
     src: LABEL=easystore
-    opts: ro
+    opts: defaults,ro,nofail
     state: "{{ mount_state }}"
     fstype: hfsplus
