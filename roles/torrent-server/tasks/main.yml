@@ -1,0 +1,22 @@
+---
+- name: install transmission-daemon and jq
+  ansible.builtin.apt:
+    name:
+    - transmission-daemon
+    - jq
+    state: present
+
+- name: stop transmission-daemon for configuration
+  ansible.builtin.systemd:
+    name: transmission-daemon
+    state: stopped
+
+- name: Configure transmission with jq
+  ansible.builtin.shell: |
+    jq '."{{ item.key }}"'='"{{ item.value }}"' /etc/transmission-daemon/settings.json > /tmp/settings.json && mv /tmp/settings.json /etc/transmission-daemon/settings.json
+  loop: "{{ transmission_settings | dict2items }}"
+
+- name: stop transmission-daemon for configuration
+  ansible.builtin.systemd:
+    name: transmission-daemon
+    state: started

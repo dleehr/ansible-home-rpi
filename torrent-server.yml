@@ -1,0 +1,6 @@
+---
+- name: install and configure torrent client
+  hosts: all
+  become: yes
+  roles:
+  - torrent-server
