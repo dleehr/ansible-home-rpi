@@ -1,5 +1,7 @@
 ---
 transmission_settings:
-  rpc-whitelist: '10.0.0.181'
-  rpc-username: 'dan'
-  rpc-password: '{{ password }}'
+  rpc-whitelist: '"10.0.0.181"'
+  rpc-username: '"dan"'
+  rpc-password: '"{{ password }}"'
+  peer-port-random-on-start: "true"
+  port-forwarding-enabled: "true"

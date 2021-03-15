@@ -11,9 +11,12 @@
     name: transmission-daemon
     state: stopped
 
-- name: Configure transmission with jq
-  ansible.builtin.shell: |
-    jq '."{{ item.key }}"'='"{{ item.value }}"' /etc/transmission-daemon/settings.json > /tmp/settings.json && mv /tmp/settings.json /etc/transmission-daemon/settings.json
+- name: Configure transmission settings.json
+  ansible.builtin.lineinfile:
+    path: /etc/transmission-daemon/settings.json
+    regexp: '  "{{ item.key }}":.*(,+)'
+    line: '  "{{ item.key }}": {{ item.value }}\1'
+    backrefs: yes
   loop: "{{ transmission_settings | dict2items }}"
 
 - name: stop transmission-daemon for configuration
