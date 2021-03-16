@@ -1,7 +1,7 @@
 ---
 share_name: downloads
 transmission_settings:
-  rpc-whitelist: '"10.0.0.181"'
+  rpc-whitelist: '"127.0.0.1,10.0.0.*"'
   rpc-username: '"dan"'
   rpc-password: '"{{ password }}"'
   peer-port-random-on-start: "true"

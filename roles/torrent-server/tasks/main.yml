@@ -28,6 +28,7 @@
 - name: share torrent downloads
   ansible.builtin.blockinfile:
     path: /etc/samba/smb.conf
+    marker: "# {mark} ANSIBLE MANAGED BLOCK transmission downloads"
     block: |
       [{{ share_name }}]
       path = /var/lib/transmission-daemon/downloads
@@ -36,3 +37,9 @@
       directory mask=0777
       public=no
   notify: restart_smbd
+
+- name: Add user to transmission group for access to files
+  ansible.builtin.user:
+    name: "{{ lookup('env', 'USER') }}"
+    groups: debian-transmission
+    append: yes
