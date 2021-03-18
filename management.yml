@@ -1,0 +1,9 @@
+---
+- name: manage rpi
+  hosts: all
+  become: yes
+  tasks:
+  - name: install cockpit
+    ansible.builtin.apt:
+      name: cockpit
+      install_recommends: no
