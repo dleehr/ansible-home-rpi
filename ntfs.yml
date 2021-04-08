@@ -1,0 +1,11 @@
+---
+- name: Install ntfs support
+  hosts: all
+  become: yes
+  tasks:
+  - name:
+    ansible.builtin.apt:
+      name:
+        - fuse
+        - ntfs-3g
+      install_recommends: no
