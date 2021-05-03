@@ -1,0 +1,13 @@
+---
+- name: Install and configure plex
+  hosts: all
+  become: yes
+  tasks:
+  - ansible.builtin.apt_key:
+      url: https://downloads.plex.tv/plex-keys/PlexSign.key
+      state: present
+  - ansible.builtin.apt_repository:
+      repo: deb https://downloads.plex.tv/repo/deb public main
+      state: present
+  - ansible.builtin.apt:
+      name: plexmediaserver
